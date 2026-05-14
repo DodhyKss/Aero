@@ -2,23 +2,23 @@
 
 Aero adalah framework frontend minimalis berbasis PHP murni dengan navigasi Single Page Application (SPA) tanpa *full page reload*. Framework ini tidak membutuhkan Composer, dirancang untuk menjadi sangat ringan, dan dilengkapi dengan utilitas API Fetching serta styling menggunakan **Tailwind CSS** & **Bootstrap Icons** secara offline.
 
-## ✨ Fitur Utama
+## Fitur Utama
 
-- 🛤️ **SPA Navigation**: Navigasi halaman yang mulus menggunakan AJAX dan History API.
-- 🎨 **Tailwind Offline**: Menggunakan Tailwind CSS yang dikompilasi (via NPM). Bebas *lag* dan bisa diakses 100% offline tanpa CDN.
-- 📡 **Client & Server API**: Dilengkapi dengan helper `Api` untuk Javascript dan `HttpClient` untuk backend PHP.
-- 🧩 **Komponen Reusable**: Pecah kode UI kamu menjadi komponen-komponen kecil berbasis PHP.
-- 🛡️ **Proteksi Middleware**: Dukungan middleware bawaan untuk proteksi *route* (contoh: pengecekan sesi / Auth).
-- ⚙️ **Konfigurasi .env**: Dukungan pembacaan variabel *environment* melalui `Core\Env` untuk menyimpan *secret key* atau URL API secara aman.
+- **SPA Navigation**: Navigasi halaman yang mulus menggunakan AJAX dan History API.
+- **Tailwind Offline**: Menggunakan Tailwind CSS yang dikompilasi (via NPM). Bebas *lag* dan bisa diakses 100% offline tanpa CDN.
+- **Client & Server API**: Dilengkapi dengan helper `Api` untuk Javascript dan `HttpClient` untuk backend PHP.
+- **Komponen Reusable**: Pecah kode UI kamu menjadi komponen-komponen kecil berbasis PHP.
+- **Proteksi Middleware**: Dukungan middleware bawaan untuk proteksi *route* (contoh: pengecekan sesi / Auth).
+- **Konfigurasi .env**: Dukungan pembacaan variabel *environment* melalui `Core\Env` untuk menyimpan *secret key* atau URL API secara aman.
 
-## 📥 Instalasi dari Awal
+## Instalasi dari Awal
 
-Pastikan komputer kamu sudah terinstall **PHP (minimal versi 8.0)** dan **Node.js / NPM**.
+Pastikan komputer kamu sudah terinstall **PHP (minimal versi 8.3.29)** dan **Node.js / NPM**.
 
 1. **Clone atau Download Repository**
    ```bash
-   git clone https://github.com/username/Aero-framework.git
-   cd Aero-framework
+   git clone https://github.com/DodhyKss/Aero.git
+   cd Aero
    ```
 
 2. **Install Dependencies Frontend**
@@ -43,7 +43,7 @@ Pastikan komputer kamu sudah terinstall **PHP (minimal versi 8.0)** dan **Node.j
 ## 📁 Struktur Direktori
 
 ```text
-framework/
+Aero/
  ├── app/
  │    ├── Components/    # Potongan UI reusable (navbar, footer, sidebar)
  │    ├── Middleware/    # Class untuk proteksi rute sebelum diakses
@@ -57,7 +57,7 @@ framework/
  └── tailwind.config.js  # Konfigurasi Tailwind CSS
 ```
 
-## 🛤️ Routing & SPA Navigation
+## Routing & SPA Navigation
 
 Semua rute dideklarasikan di dalam file `app/routes.php`.
 
@@ -82,7 +82,7 @@ Jangan gunakan link `<a>` biasa. Tambahkan atribut `data-spa-link` ke dalam tag 
 </a>
 ```
 
-## 🛡️ Proteksi Middleware
+## Proteksi Middleware
 
 Jika kamu ingin membatasi akses pada rute tertentu (misal: halaman Admin), gunakan fitur Middleware. Framework ini mendukung middleware baik pada *Group* maupun *Single Route*.
 
@@ -104,7 +104,7 @@ $router->get('/profile', function() {
 
 *Contoh file Middleware bisa kamu lihat di `app/Middleware/AuthMiddleware.php`.*
 
-## 🧩 Views & Components
+## Views & Components
 
 Pecah rancangan UI kamu menjadi potongan-potongan di `app/Components/` (contoh: `navbar.php`), lalu panggil di dalam View Utama (`app/Pages/home.php`) menggunakan metode `View::component()`.
 
@@ -126,14 +126,14 @@ Pecah rancangan UI kamu menjadi potongan-potongan di `app/Components/` (contoh: 
 </div>
 ```
 
-## 📡 Fetching Data API Terpusat
+## Fetching Data API Terpusat
 
 Dalam SPA, perpindahan halaman tidak perlu *reload*, jadi seringkali kita perlu mengambil data dari Back-End via Javascript.
 Untuk mempermudah pemanggilan HTTP Request, gunakan JS object `Api` (pembungkus API `fetch()` asli bawaan JS).
 
 ```javascript
 // Contoh pemanggilan dari JS frontend
-const result = await window.Api.get('https://jsonplaceholder.typicode.com/users/1');
+const result = await window.Api.get('/users/1');
 
 if (result.success) {
     console.log(result.data);
@@ -144,7 +144,7 @@ if (result.success) {
 }
 ```
 
-## 🛠️ Pengembangan CSS (Tailwind)
+## Pengembangan CSS (Tailwind)
 
 Aero sudah pre-configured dengan Tailwind CSS. Selama proses *coding* atau mendesain, jalankan perintah *watch* pada terminal agar setiap penambahan class `.php` kamu langsung dikompilasi:
 
@@ -152,5 +152,3 @@ Aero sudah pre-configured dengan Tailwind CSS. Selama proses *coding* atau mende
 npm run css:watch
 ```
 
----
-*Dibuat dengan ❤️ oleh Aero.*
