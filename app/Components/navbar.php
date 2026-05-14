@@ -16,7 +16,7 @@ $currentUri = $_SERVER['REQUEST_URI'] ?? '/';
                 </a>
             </li>
             <li>
-                <a href="https://github.com" target="_blank" class="flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm text-slate-600 hover:text-indigo-600 hover:bg-slate-50 transition-colors duration-200">
+                <a href="https://github.com/DodhyKss/Aero" target="_blank" class="flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm text-slate-600 hover:text-indigo-600 hover:bg-slate-50 transition-colors duration-200">
                     <i class="bi bi-github"></i> GitHub
                 </a>
             </li>
