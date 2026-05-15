@@ -1,8 +1,11 @@
 {
-  "name": "aerospa",
+  "name": "create-aerospa",
   "version": "1.0.0",
-  "description": "",
+  "description": "Installer untuk Aero SPA Framework",
   "main": "index.js",
+  "bin": {
+    "create-aerospa": "./bin/cli.js"
+  },
   "scripts": {
     "css:build": "npx tailwindcss -i ./src/tailwind.css -o ./public/assets/css/tailwind.css --minify",
     "css:watch": "npx tailwindcss -i ./src/tailwind.css -o ./public/assets/css/tailwind.css --watch"
